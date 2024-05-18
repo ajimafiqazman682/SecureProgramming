@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        /* Your existing CSS styles */
+        /* Positioning */
+        .abs {
+            position: absolute;
+        }
+
+        .rel {
+            position: relative;
+        }
+
+        .fix {
+            position: fixed;
+        }
+
+        /* Display */
+        .di {
+            display: inline;
+        }
+
+        .dib {
+            display: inline-block;
+        }
+
+        .blk {
+            display: block;
+        }
+
+        .none {
+            display: none;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .if {
+            display: inline-flex;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .ig {
+            display: inline-grid;
+        }
+
+        /* Vertical Align */
+        .vm {
+            vertical-align: middle;
+        }
+
+        /* Colors */
+        body {
+            background: #24282f;
+            font-family: 'Alegreya Sans', sans-serif;
+            color: white; /* Changed font color to white */
+        }
+
+        /* Wrapper */
+        .wrapper {
+            padding: 15px;
+        }
+
+        /* H1 */
+        h1 {
+            text-align: center; /* Center align */
+            margin-top: 50px; /* Adjust as needed */
+            font-size: 36px;
+            color: white; /* Font color white */
+        }
+
+        /* Form Container */
+        .form-container {
+            margin: 0 auto;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        /* Form Fields */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: calc(100% - 20px); /* Reduced width */
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #444;
+            color: white;
+        }
+
+        /* Confirm Button */
+        .confirm-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #4caf50;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .confirm-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Payment</h1>
+        <div class="form-container">
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="username">Account Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="confirm-button">Confirm</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById("paymentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            
+            window.location.href = "orderconfirm.html";
+        });
+    </script>
+</body>
+</html>

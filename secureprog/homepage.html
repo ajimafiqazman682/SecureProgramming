@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <style>
+        /* Your existing CSS styles */
+        /* Positioning */
+        .abs {
+            position: absolute;
+        }
+
+        .rel {
+            position: relative;
+        }
+
+        .fix {
+            position: fixed;
+        }
+
+        /* Display */
+        .di {
+            display: inline;
+        }
+
+        .dib {
+            display: inline-block;
+        }
+
+        .blk {
+            display: block;
+        }
+
+        .none {
+            display: none;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .if {
+            display: inline-flex;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .ig {
+            display: inline-grid;
+        }
+
+        /* Vertical Align */
+        .vm {
+            vertical-align: middle;
+        }
+
+        /* Colors */
+        body {
+            background: #24282f;
+            font-family: 'Alegreya Sans', sans-serif;
+            color: white; /* Changed font color to white */
+        }
+
+        /* Wrapper */
+        .wrapper {
+            padding: 15px;
+            position: relative; /* Added to position the checkout button */
+        }
+
+        /* H1 */
+        h1 {
+            text-align: center; /* Center align */
+            margin-top: 50px; /* Adjust as needed */
+            font-size: 36px;
+            color: white; /* Font color white */
+        }
+
+        /* H2 */
+        h2 {
+            position: relative;
+            vertical-align: middle;
+            padding: 10px;
+            padding-left: 25px;
+            color: #ccc;
+            margin: 0;
+        }
+
+        h2 strong {
+            position: relative;
+            vertical-align: middle;
+            z-index: 2;
+            background: #24282f;
+            padding: 4px 8px;
+        }
+
+        h2 span {
+            vertical-align: middle;
+            font-size: 0.7em;
+            color: #aaa;
+            margin-left: 10px;
+        }
+
+        h2:after {
+            position: absolute;
+            content: '';
+            z-index: 1;
+            bottom: 50%;
+            margin-bottom: -2px;
+            height: 2px;
+            left: 0;
+            right: 0;
+            background: lighten(#24282f, 10%);
+        }
+
+        /* Cards */
+        .cards {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        .card {
+            position: relative;
+            margin: 20px;
+            width: 270px;
+            height: 270px;
+            overflow: hidden;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+            transform-origin: center top;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            transition: 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        .card figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            padding-bottom: 10px;
+            font-size: 20px;
+            background: none;
+            color: #fff;
+            transform: translateY(100%);
+            transition: 0.3s;
+        }
+
+        .card .price {
+            font-size: 18px;
+            color: #fff;
+            margin-top: 10px;
+        }
+
+        .card:after {
+            position: absolute;
+            content: '';
+            z-index: 10;
+            width: 200%;
+            height: 100%;
+            top: -90%;
+            left: -20px;
+            opacity: 0.1;
+            transform: rotate(45deg);
+            background: linear-gradient(to top, transparent, #fff 15%, rgba(255, 255, 255, 0.5));
+            transition: 0.3s;
+        }
+
+        .card:hover, .card:focus, .card:active {
+            box-shadow: 0 8px 16px 3px rgba(0, 0, 0, 0.6);
+            transform: translateY(-3px) scale(1.05) rotateX(15deg);
+        }
+
+        .card:hover figcaption, .card:focus figcaption, .card:active figcaption {
+            transform: none;
+        }
+
+        .card:hover:after, .card:focus:after, .card:active:after {
+            transform: rotate(25deg);
+            top: -40%;
+            opacity: 0.15;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-container button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #1bdf09;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Shopping Cart */
+        .cart {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        .cart h2 {
+            margin-top: 0;
+        }
+
+        .cart ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cart li {
+            padding: 10px 0;
+            border-bottom: 1px solid #444;
+        }
+
+        .cart .total-price {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #fff;
+        }
+
+        /* News */
+        .news {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        .article {
+            position: relative;
+            overflow: hidden;
+            width: 350px;
+            height: 350px;
+            margin: 20px;
+        }
+
+        .article img {
+            width: 100%;
+            min-height: 100%;
+            transition: 0.2s;
+        }
+
+        .article figcaption {
+            position: absolute;
+            font-size: 14px;
+            text-shadow: 0 1px 0 rgba(51, 51, 51, 0.3);
+            color: #fff;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            padding: 40px;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+            background: rgba(6, 18, 53, 0.6);
+            opacity: 0;
+            transform: scale(1.15);
+            transition: 0.2s;
+        }
+
+        .article figcaption h3 {
+            color: #3792e3;
+            font-size: 16px;
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+
+        .article:hover img, .article:focus img, .article:active img {
+            filter: blur(3px);
+            transform: scale(0.97);
+        }
+
+        .article:hover figcaption, .article:focus figcaption, .article:active figcaption {
+            opacity: 1;
+            transform: none;
+        }
+        
+        .logout {
+            position: absolute;
+            top: 20px; /* Adjust as needed */
+            right: 20px;
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px; 
+            font-size: 18px;
+            width: 100px; 
+            height: 20px; 
+            color: rgb(255, 255, 255) !important;
+            background-color: #474a4b;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .checkout {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 30px;
+            background-color: #24e412;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+
+        <h1>Pizza Booking</h1>
+
+        <h2><strong>All Available Pizzas<span>( 4 )</span></strong></h2>
+
+        <div class="cards">
+            <div class="card-container">
+                <figure class="card">
+                    <img src="https://order.dominos.com.my/ManagedAssets/MY/product/PKSA/MY_PKSA_en_hero_13105.jpg?v-1361224133" /> 
+                    <figcaption>*NEW* Chicken Sate</figcaption>
+                    <div class="price">RM28.00</div>
+                </figure>
+                <button onclick="addToCart('*NEW* Chicken Sate', 28)">Order</button>
+            </div>
+
+            <div class="card-container">
+                <figure class="card">
+                    <img src="https://order.dominos.com.my/ManagedAssets/MY/product/PQAM/MY_PQAM_en_hero_12818.jpg?v1555558583" />
+                    <figcaption>Chickensaures</figcaption>
+                    <div class="price">RM23.00</div>
+                </figure>
+                <button onclick="addToCart('Chickensaures', 23)">Order</button>
+            </div>
+
+            <div class="card-container">
+                <figure class="card">
+                    <img src="https://www.dominos.com.my/ManagedAssets/MY/product/PSHP/MY_PSHP_en_hero_12818.jpg?v-937163034" />
+                    <figcaption>Spicy Sausage</figcaption>
+                    <div class="price">RM25.00</div>
+                </figure>
+                <button onclick="addToCart('Spicy Sausage', 25)">Order</button>
+            </div>
+
+            <div class="card-container">
+                <figure class="card">
+                    <img src="https://www.dominos.com.my/ManagedAssets/MY/product/PQBW7HT/MY_PQBW7HT_en_hero_12818.jpg?v64574054" />
+                    <figcaption>Smoky Beef & Chick</figcaption>
+                    <div class="price">RM29.00</div>
+                </figure>
+                <button onclick="addToCart('Smoky Beef & Chick', 29)">Order</button>
+            </div>
+        </div>
+
+        <h2><strong>What's new?</strong></h2>
+
+        <div class="news">
+            <figure class="article">
+                <img src="https://order.dominos.com.my/ManagedAssets/MY/offer/15785/MY_15785_en_popup_29428.jpg?v2034842544" />
+                <figcaption>
+                    <h3>Best Of Deals</h3>
+                    <p>Buy 2 Regular Pizzas for one Price.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="article">
+                <img src="https://order.dominos.com.my/ManagedAssets/MY/offer/15785/MY_15785_en_popup_29430.jpg?v-2104899881" />
+                <figcaption>
+                    <h3>Add On</h3>
+                    <p>Add On Fabalous Four RM39.90.</p>
+                </figcaption>
+            </figure>
+            
+            <a href="index.html" class="logout">Logout</a>
+        </div>
+
+        <div class="cart">
+            <h2>Shopping Cart</h2>
+            <ul id="cartItems">
+                <!-- Cart items will be appended here -->
+            </ul>
+            <div class="total-price" id="totalPrice">Total: RM0.00</div>
+        </div>
+
+        <button class="checkout" onclick="checkout()">Checkout</button>
+
+    </div>
+
+    <script>
+        var totalPrice = 0;
+
+        function addToCart(pizzaName,price) {
+            var cartItems = document.getElementById('cartItems');
+            var li = document.createElement('li');
+            li.textContent = pizzaName + " - RM" + price.toFixed(2);
+            cartItems.appendChild(li);
+
+            totalPrice += price;
+            document.getElementById('totalPrice').textContent = "Total: RM" + totalPrice.toFixed(2);
+        }
+
+        function checkout() {
+            // Redirect to the payment page
+            window.location.href = "payment.html";
+        }
+    </script>
+</body>
+</html>
+

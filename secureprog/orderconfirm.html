@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Order Confirmation</title>
+    <style>
+        body {
+            background-color: #24282f;
+            font-family: 'Alegreya Sans', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .order-confirmation {
+            text-align: center;
+        }
+
+        .order-confirmation img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+        .order-confirmation h2 {
+            color: #24e412;
+            font-size: 36px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="order-confirmation">
+            <img src="data:image/png;base64,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" alt="Checkmark">
+            <h2>Your order has been confirmed</h2>
+        </div>
+    </div>
+</body>
+</html>
+
+
